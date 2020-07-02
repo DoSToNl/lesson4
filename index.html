@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="RU">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div id="example">
+		  <p>Изначальное сообщение: «{{ message }}»</p>
+		  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
+		  <button @click="reversedMessage2">Сообщение задом наперёд</button>
+
+		  <p>«{{ revMes }}»</p>
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+		  el: '#example',
+		  data: {
+		    message: 'я тебя люблю',
+		    revMes: ''
+		  },
+		  computed: {
+		    reversedMessage: function () {
+		      return this.message.split('').reverse().join('')
+		    }
+		  },
+		  methods: {
+		    reversedMessage2: function () {
+		      let text = this.message.split('').reverse().join('');
+		      this.revMes = text;
+		    }
+		  }
+		})
+	</script>
+</body>
+</html>
